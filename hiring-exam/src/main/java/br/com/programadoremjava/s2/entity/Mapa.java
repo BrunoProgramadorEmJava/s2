@@ -77,4 +77,9 @@ public class Mapa implements Serializable {
 		this.segmentos = segmentos;
 	}
 
+	@Override
+	public String toString() {
+		return "Mapa [id=" + id + ", nome=" + nome + ", segmentos=" + segmentos + "]";
+	}
+
 }

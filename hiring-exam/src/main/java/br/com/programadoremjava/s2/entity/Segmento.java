@@ -117,4 +117,9 @@ public class Segmento implements Serializable {
 		this.origem = origem;
 	}
 
+	@Override
+	public String toString() {
+		return "Segmento [id=" + id + ", origem=" + origem + ", destino=" + destino + ", distancia=" + distancia + "]";
+	}
+
 }
