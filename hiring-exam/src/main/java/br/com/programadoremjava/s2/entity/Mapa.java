@@ -1,6 +1,7 @@
 package br.com.programadoremjava.s2.entity;
 
 import java.io.Serializable;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -26,7 +27,7 @@ public class Mapa implements Serializable {
 	private String nome;
 
 	@OneToMany(targetEntity = Segmento.class, mappedBy = "mapa")
-	private List<Segmento> segmentos;
+	private List<Segmento> segmentos = new LinkedList<>();
 
 	public Mapa() {
 	}
