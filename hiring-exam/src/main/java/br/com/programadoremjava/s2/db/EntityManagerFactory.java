@@ -5,15 +5,21 @@ import javax.persistence.Persistence;
 
 public class EntityManagerFactory {
 
-	private static class EntityManagerHolder {
-		private static final EntityManager MANAGER = Persistence.createEntityManagerFactory("s2").createEntityManager();
-	}
-
+	private static EntityManager manager;
+	
 	private EntityManagerFactory() {
 	}
 
 	public static EntityManager getEntityManager() {
-		return EntityManagerHolder.MANAGER;
+		if (null == manager) {
+			synchronized (EntityManagerFactory.class) {
+				if (null == manager) {
+					javax.persistence.EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("s2");
+					manager = entityManagerFactory.createEntityManager();
+				}
+			}
+		}
+		return manager;
 	}
 
 }

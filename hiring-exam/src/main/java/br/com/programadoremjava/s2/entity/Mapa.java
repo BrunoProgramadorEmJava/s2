@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,14 +20,14 @@ public class Mapa implements Serializable {
 	private static final long serialVersionUID = -4495146457404504024L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "mapa_id")
 	private Long id;
 
 	@Column(name = "nome")
 	private String nome;
 
-	@OneToMany(targetEntity = Segmento.class, mappedBy = "mapa")
+	@OneToMany(targetEntity = Segmento.class, mappedBy = "mapa", cascade = CascadeType.ALL)
 	private List<Segmento> segmentos = new LinkedList<>();
 
 	public Mapa() {

@@ -5,7 +5,6 @@
 
 	<persistence-unit name="s2">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<!-- <jta-data-source>java:/jdbc/s2-ds</jta-data-source> -->
 
 		<!-- Annotated entity classes -->
 		<class>br.com.programadoremjava.s2.entity.Mapa</class>

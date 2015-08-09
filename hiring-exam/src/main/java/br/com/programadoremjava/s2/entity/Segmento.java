@@ -18,7 +18,7 @@ public class Segmento implements Serializable {
 	private static final long serialVersionUID = 1765904181625903628L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "segmento_id")
 	private Long id;
 

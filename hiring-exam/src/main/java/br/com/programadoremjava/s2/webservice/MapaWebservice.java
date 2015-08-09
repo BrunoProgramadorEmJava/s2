@@ -8,6 +8,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import br.com.programadoremjava.s2.dao.MapaDAO;
 import br.com.programadoremjava.s2.entity.Mapa;
 
 @Path("/mapas")
@@ -24,9 +25,10 @@ public class MapaWebservice {
 	}
 
 	@POST
-	@Path("/novo")
+	@Path("/")
 	public Mapa save(Mapa mapa) {
 		System.out.println(mapa);
+		new MapaDAO().put(mapa);
 		return mapa;
 	}
 

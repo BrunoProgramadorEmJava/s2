@@ -3,7 +3,7 @@
 	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 
-	<persistence-unit name="s2">
+	<persistence-unit name="s2" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<jta-data-source>java:/jdbc/s2-ds</jta-data-source>
 
@@ -12,6 +12,10 @@
 		<class>br.com.programadoremjava.s2.entity.Segmento</class>
 
 		<properties>
+
+			<property name="hibernate.transaction.manager_lookup_class"
+				value="org.hibernate.transaction.JBossTransactionManagerLookup" />
+
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.show_sql" value="true" />
