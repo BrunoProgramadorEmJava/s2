@@ -2,6 +2,7 @@ package br.com.programadoremjava.s2.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 @Entity
 @Table(name = "segmento")
@@ -22,8 +25,9 @@ public class Segmento implements Serializable {
 	@Column(name = "segmento_id")
 	private Long id;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "mapa_id", referencedColumnName = "mapa_id")
+	@JsonIgnore
 	private Mapa mapa;
 
 	@Column(name = "origem")

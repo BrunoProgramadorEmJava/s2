@@ -10,6 +10,7 @@ import javax.ws.rs.core.MediaType;
 
 import br.com.programadoremjava.s2.dao.MapaDAO;
 import br.com.programadoremjava.s2.entity.Mapa;
+import br.com.programadoremjava.s2.entity.Segmento;
 
 @Path("/mapas")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -28,6 +29,9 @@ public class MapaWebservice {
 	@Path("/")
 	public Mapa save(Mapa mapa) {
 		System.out.println(mapa);
+		for (Segmento segmento : mapa.getSegmentos()) {
+			segmento.setMapa(mapa);
+		}
 		new MapaDAO().put(mapa);
 		return mapa;
 	}
