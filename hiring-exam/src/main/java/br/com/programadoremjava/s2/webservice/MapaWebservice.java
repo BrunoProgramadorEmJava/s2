@@ -20,9 +20,7 @@ public class MapaWebservice {
 	@GET
 	@Path("/{nome}")
 	public Mapa findByNome(@PathParam("nome") String nome) {
-		Mapa m = new Mapa();
-		m.setNome(nome);
-		return m;
+		return new MapaDAO().findByNome(nome);
 	}
 
 	@POST
