@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+
+</h:head>
+<h:body>
+	<h:form>
+		<div>
+			<h:outputLabel value="Cadastro de Mapas" />
+		</div>
+		<div>
+			<h:outputLabel value="Nome:" />
+			<h:inputText value="#{cadastrarMapas.nome}" />
+		</div>
+		<div>
+			<h:dataTable value="#{cadastrarMapas.segmentos}" var="segmento">
+				<h:column>
+					<f:facet name="header">Origem</f:facet>
+					<h:inputText value="#{segmento.origem}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Destino</f:facet>
+					<h:inputText value="#{segmento.destino}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Distancia</f:facet>
+					<h:inputText value="#{segmento.distancia}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Remover Segmento</f:facet>
+					<h:commandButton value="Remover" action="#{cadastrarMapas.removerSegmento(segmento)}" />
+				</h:column>
+			</h:dataTable>
+			<h:commandButton value="Novo Segmento" action="#{cadastrarMapas.novoSegmento}" />
+		</div>
+		<div>
+			<h:commandButton value="Cadastrar" action="#{cadastrarMapas.salvar}" />
+		</div>
+	</h:form>
+</h:body>
+</html>
